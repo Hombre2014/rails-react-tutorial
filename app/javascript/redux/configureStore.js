@@ -1,8 +1,18 @@
-import { configureStore } from '@reduxjs/toolkit';
-import greetingReducer from './greeting';
+import { legacy_createStore as createStore } from 'redux';
 
-export default configureStore({
-  reducer: {
-    greetings: greetingReducer,
-  },
-});
+const initialState = {
+  things: []
+};
+
+function rootReducer(state, action) {
+  console.log(action.type);
+  switch (action.type) {
+    default:
+      return state
+  }
+}
+
+export default function configureStore() {
+  const store = createStore(rootReducer, initialState);
+  return store;
+}
